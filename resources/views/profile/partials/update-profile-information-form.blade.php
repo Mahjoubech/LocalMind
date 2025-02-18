@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Update your account's profile information, email address, and location.") }}
         </p>
     </header>
 
@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
@@ -45,6 +45,25 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+        <!-- Profile Picture Upload -->
+        <div>
+            <x-input-label for="profile_picture" :value="__('Profile Picture')" />
+            <input id="profile_picture" name="profile_picture" type="file" class="mt-1 block w-full" />
+            <x-input-error class="mt-2" :messages="$errors->get('profile_picture')" />
+        </div>
+
+        <!-- City Selection -->
+        <div>
+            <x-input-label for="city" :value="__('City')" />
+            <select id="city" name="city" class="mt-1 block w-full">
+                @foreach($cities as $city)
+
+                    <option value="{{ $city }}" {{ old('city', $user->city) == $city ? 'selected' : '' }}>{{ $city }}</option>
+                @endforeach
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('city')" />
         </div>
 
         <div class="flex items-center gap-4">
