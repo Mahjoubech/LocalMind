@@ -11,6 +11,10 @@ class QuestionController extends Controller
      */
     public function store()
     {
+        request()->validate([
+            'title'=> 'required|min:10|max:30',
+            'content'=>'required|min:30|max:100',
+        ]);
         $qst =  Question :: create (
             [
                 'title'=> request()->get('title'),
@@ -20,7 +24,7 @@ class QuestionController extends Controller
         'location' => 'merrakch',
             ]
         );
-        return redirect()->route('qstHome') ;
+        return redirect()->route('qstHome')->with('success','Question Created Success !') ;
 
     }
 
@@ -45,9 +49,13 @@ class QuestionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Question $question)
+    public function show(request $request)
     {
-        //
+
+
+
+        $qs =  Question :: find($request->qs);
+        return view('Question.show', ['qs' => $qs]);
     }
 
     /**
@@ -55,7 +63,7 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+
     }
 
     /**
@@ -69,8 +77,12 @@ class QuestionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Question $question)
+    public function destroy(Question $id)
     {
-        //
+      $id->delete();
+
+    //   return redirect()->route('qstHome')->with('success','Question Deleted Success !') ;
+    return redirect()->back();
+
     }
 }

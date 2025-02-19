@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class , 'index'])->name('qstHome');
 Route::post('/Question',[QuestionController::class , 'store'])->name('Question.create');
+Route::get('/Questions/{id}',[QuestionController::class , 'show'])->name('Question.showX');
+Route::delete('/Question/{id}',[QuestionController::class , 'destroy'])->name('Question.delete');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -9,6 +9,19 @@
                         </a></h5>
                 </div>
             </div>
+            <div class="d-flex">
+            <form method="POST" action="{{route('Question.delete',$qs->id)}}">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger btn-sm">X</button>
+            </form>
+            <form method="GET" action="{{route('Question.showX',$qs->id)}}">
+                @csrf
+                <input type="hidden" value="{{$qs->id}}" name="qs">
+            <button type="submit">View</button>
+        </form>
+            </div>
+
         </div>
     </div>
 

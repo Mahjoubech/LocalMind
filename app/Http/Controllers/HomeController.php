@@ -9,8 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-        return view('Home', ['qst' => Question::orderBy('created_at','desc')->get()]);
+        
+        return view('Home', ['qst' => Question::orderBy('created_at','desc')->paginate(3)]);
 
     }
 }

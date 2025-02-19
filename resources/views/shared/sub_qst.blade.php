@@ -7,8 +7,14 @@
             <label for="title">Title</label>
             <input type="text" name="title" class="form-control">
         </div>
+        @error('title')
+         <span class="fs-10 text-danger">{{$message}}</span>
+        @enderror
          <div class="mb-3">
         <textarea name="content" class="form-control" id="idea" rows="3"></textarea>
+        @error('content')
+        <span class="fs-10 text-danger">{{$message}}</span>
+       @enderror
     </div>
     {{-- <div class="">
         <label for="location">location</label>

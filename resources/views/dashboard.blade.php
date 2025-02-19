@@ -1,6 +1,5 @@
 
 @extends('layouts.layout')
-
 @section('content')
     <div class="container py-4">
         <div class="row">
@@ -27,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            @yield('contents');
+            @yield('contents')
         </div>
 
 
