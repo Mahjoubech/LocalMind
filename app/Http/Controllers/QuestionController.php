@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Question;
 use Illuminate\Http\Request;
 
@@ -10,10 +9,21 @@ class QuestionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function store()
     {
-        //
+        $qst =  Question :: create (
+            [
+                'title'=> request()->get('title'),
+        'content'=>request()->get('content'),
+        'user_id' => '1',
+        'like' => 2,
+        'location' => 'merrakch',
+            ]
+        );
+        return redirect()->route('qstHome') ;
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -26,11 +36,12 @@ class QuestionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    // public function dd(Request $request)
+    // {
+    //     dump();
+    //     dump(request()->get('content'));
 
+    // }
     /**
      * Display the specified resource.
      */

@@ -1,11 +1,12 @@
 <?php
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class , 'index'])->name('qstHome');
+Route::post('/Question',[QuestionController::class , 'store'])->name('Question.create');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
