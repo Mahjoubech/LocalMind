@@ -18,6 +18,7 @@
         </div>
         {{$qst->links()}}
         @yield('content')
+
     </div>
 
     @endsection

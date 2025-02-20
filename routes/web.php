@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class , 'index'])->name('qstHome');
 Route::post('/Question',[QuestionController::class , 'store'])->name('Question.create');
-Route::get('/Questions/{id}',[QuestionController::class , 'show'])->name('Question.showX');
+Route::get('/Questions/{qs}',[QuestionController::class , 'show'])->name('Question.show');
+Route::get('/Questions/{qs}/edit',[QuestionController::class , 'edit'])->name('Question.edit');
+Route::put('/Questions/{qs}',[QuestionController::class , 'update'])->name('Question.update');
 Route::delete('/Question/{id}',[QuestionController::class , 'destroy'])->name('Question.delete');
 
 

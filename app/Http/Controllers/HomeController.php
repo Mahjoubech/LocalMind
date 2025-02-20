@@ -9,8 +9,20 @@ class HomeController extends Controller
 {
     public function index()
     {
-        
-        return view('Home', ['qst' => Question::orderBy('created_at','desc')->paginate(3)]);
+        $qst = Question::orderBy('created_at', 'desc');
 
+        if (request()->has('search')) {
+            $search = request()->get('search', '');
+
+            $qst = $qst->where(function ($query) use ($search) {
+                $query->where('title', 'like', '%' . $search . '%')
+                      ->orWhere('location', 'like', '%' . $search . '%')
+                      ->orWhere('content', 'like', '%' . $search . '%');
+            });
+        }
+
+        return view('Home', ['qst' => $qst->paginate(3)]);
     }
 }
+
+

@@ -49,29 +49,40 @@ class QuestionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(request $request)
+    public function show(Question $qs)
     {
-
-
-
-        $qs =  Question :: find($request->qs);
         return view('Question.show', ['qs' => $qs]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Question $question)
+    public function edit(Question $qs)
     {
-
+        $editing = true;
+        return view('Question.show', compact('qs','editing'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Question $question)
+    public function update(Request $request, Question $qs)
     {
-        //
+
+        $request->validate([
+            'title'   => 'required|min:10|max:30',
+            'content' => 'required|min:20|max:100',
+        ]);
+
+        $qs->update([
+            'title'    => $request->title,
+            'content'  => $request->content,
+            'user_id'  => 1,
+            'like'     => 2,
+            'location' => 'Marrakech',
+        ]);
+        return redirect()->route('Question.show', $qs->id)
+                         ->with('success', 'Question updated successfully!');
     }
 
     /**

@@ -4,31 +4,19 @@
     <div class="container py-4">
         <div class="row">
             <div class="col-3">
-                <div class="card overflow-hidden">
-                    <div class="card-body pt-3">
-                        <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">
-                                    <span>Home</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span>Chat</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span>Favorite</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-footer text-center py-2">
-                        <a class="btn btn-link btn-sm" href="#">View Profile </a>
-                    </div>
-                </div>
+                @include('shared.left-sideBar')
             </div>
             @yield('contents')
+
+        </div>
+        <div class="col-3">
+            @include('shared.search-box')
+
+            @include('shared.follow-box')
         </div>
 
+    </div>
+</div>
 
     </div>
 
