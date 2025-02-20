@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Question;
 use App\Models\Reponse;
 use Illuminate\Http\Request;
 
@@ -26,9 +26,13 @@ class ReponseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Question $qst)
     {
-        //
+        $rpnse = new Reponse();
+        $rpnse-> question_id = $qst->id;
+        $rpnse->content = request()->get('content');
+        $rpnse->save();
+        return redirect()->route('Question.show',$qst -> id );
     }
 
     /**
