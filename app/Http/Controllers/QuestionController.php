@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Models\Reponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -12,19 +13,14 @@ class QuestionController extends Controller
      */
     public function store()
     {
-        request()->validate([
+       $valid = request()->validate([
             'title'=> 'required|min:10|max:30',
             'content'=>'required|min:30|max:100',
         ]);
-        $qst =  Question :: create (
-            [
-                'title'=> request()->get('title'),
-        'content'=>request()->get('content'),
-        'user_id' => '1',
-        'like' => 2,
-        'location' => 'merrakch',
-            ]
-        );
+       $valid['user_id'] = Auth::id();
+       $valid['like'] = 2;
+       $valid['location'] = request('location', 'Safi');
+        $qst =  Question :: create ($valid );
         return redirect()->route('qstHome')->with('success','Question Created Success !') ;
 
     }
