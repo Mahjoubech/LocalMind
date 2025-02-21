@@ -26,13 +26,15 @@ class ReponseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Question $qst)
+    public function store(Question $qs)
     {
+
         $rpnse = new Reponse();
-        $rpnse-> question_id = $qst->id;
+        $rpnse-> question_id = $qs->id;
         $rpnse->content = request()->get('content');
+        $rpnse->user_id = 1;
         $rpnse->save();
-        return redirect()->route('Question.show',$qst -> id );
+        return redirect()->route('Question.show',$qs -> id );
     }
 
     /**
