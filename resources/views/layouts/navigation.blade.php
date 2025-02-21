@@ -26,7 +26,16 @@
                         <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="/profile">View Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                @csrf
+                                <li class="nav-item">
+                                    <button type="submit" class="dropdown-item bg-transparent d-flex align-items-center">
+                                        <i class="bi bi-box-arrow-right me-2"></i> 
+                                        Logout
+                                    </button>
+                                </li>
+                            </form>
+
                         </ul>
                     </li>
 
