@@ -9,24 +9,19 @@ use App\Http\Controllers\ReponseController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class , 'index'])->name('qstHome');
-Route::post('/Question',[QuestionController::class , 'store'])->name('Question.create');
-Route::get('/Questions/{qs}',[QuestionController::class , 'show'])->name('Question.show');
-Route::get('/Questions/{qs}/edit',[QuestionController::class , 'edit'])->name('Question.edit')->middleware('auth');
-Route::put('/Questions/{qs}',[QuestionController::class , 'update'])->name('Question.update')->middleware('auth');
-Route::delete('/Question/{id}',[QuestionController::class , 'destroy'])->name('Question.delete')->middleware('auth');
+//grouping routages
+Route::group(['prefix' => 'Question/','as' => 'Question.','middleware' => 'auth'],function(){ Route::post('',[QuestionController::class , 'store'])->name('create');
+Route::get('/{qs}',[QuestionController::class , 'show'])->name('show');
+Route::get('/{qs}/edit',[QuestionController::class , 'edit'])->name('edit');
+Route::put('/{qs}',[QuestionController::class , 'update'])->name('update');
+Route::delete('/{id}',[QuestionController::class , 'destroy'])->name('delete');
+Route::post('/{qs}/reponses',[ReponseController::class , 'store'])->name('reponsestore');
 
+});
 //Reponses
-Route::post('/Questions/{qs}/reponses',[ReponseController::class , 'store'])->name('Question.reponsestore')->middleware('auth');
 Route::delete('/Question/{id}/reponses',[ReponseController::class , 'destroy'])->name('Reponse.delete');
 
-//register
-Route::get('/register',[AuthController::class , 'register'])->name('register');
-Route::post('/register',[AuthController::class , 'store']);
-//login
-Route::get('/login',[AuthController::class , 'login'])->name('login');
-Route::post('/login',[AuthController::class , 'authenticate']);
-//logout
-Route::post('/logout',[AuthController::class , 'logout'])->name('logout');
+
 
 
 // Route::get('/dashboard', function () {
