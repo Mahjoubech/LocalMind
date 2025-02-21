@@ -18,13 +18,17 @@
             <form method="POST" action="{{route('Question.delete',$qs->id)}}">
                 @csrf
                 @method('delete')
+                @if (Auth::id() === $qs->user_id)
                 <a class="mx-2" href="{{route('Question.edit',$qs->id)}}">Edit</a>
                 <button class="btn btn-danger btn-sm">X</button>
+                @else
+                @endif
+                @endauth
                 <a class="mx-2" href="{{route('Question.show',$qs->id)}}">View</a>
             </form>
 
             </div>
-           @endauth
+
         </div>
     </div>
 

@@ -57,6 +57,9 @@ class QuestionController extends Controller
      */
     public function edit(Question $qs)
     {
+        if(Auth::id() !== $qs->user_id){
+            abort(404);
+        }
         $editing = true;
         return view('Question.show', compact('qs','editing'));
     }
@@ -88,6 +91,9 @@ class QuestionController extends Controller
      */
     public function destroy(Question $id)
     {
+        if(Auth::id() !== $id->user_id){
+            abort(404);
+        }
       $id->delete();
 
     //   return redirect()->route('qstHome')->with('success','Question Deleted Success !') ;
