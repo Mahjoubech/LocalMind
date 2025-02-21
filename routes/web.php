@@ -23,6 +23,8 @@ Route::post('/register',[AuthController::class , 'store']);
 //login
 Route::get('/login',[AuthController::class , 'login'])->name('login');
 Route::post('/login',[AuthController::class , 'authenticate']);
+//logout
+Route::post('/logout',[AuthController::class , 'logout'])->name('logout');
 
 
 // Route::get('/dashboard', function () {
