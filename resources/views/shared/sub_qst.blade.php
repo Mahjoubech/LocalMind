@@ -1,3 +1,4 @@
+@auth()
 <h4> Share yours Questions </h4>
 <div class="row">
 
@@ -28,3 +29,8 @@
 </form>
 
 </div>
+@endauth
+@guest
+    <h4>Login for share Your Questions</h4>
+@endguest
+
