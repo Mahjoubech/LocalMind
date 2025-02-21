@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Question;
+use App\Models\Reponse;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -51,6 +52,7 @@ class QuestionController extends Controller
      */
     public function show(Question $qs)
     {
+        $qs->responses;
         return view('Question.show', ['qs' => $qs]);
     }
 
