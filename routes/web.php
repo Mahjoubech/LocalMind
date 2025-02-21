@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\HomeController;
 
@@ -14,12 +16,16 @@ Route::put('/Questions/{qs}',[QuestionController::class , 'update'])->name('Ques
 Route::delete('/Question/{id}',[QuestionController::class , 'destroy'])->name('Question.delete');
 
 //commment
-Route::post('/Questions/{id}/reponses',[ReponseController::class , 'store'])->name('Question.reponsestore');
+Route::post('/Questions/{qs}/reponses',[ReponseController::class , 'store'])->name('Question.reponsestore');
+//register
+Route::get('/register',[AuthController::class , 'register'])->name('register');
+Route::post('/register',[AuthController::class , 'store'])
+;
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
