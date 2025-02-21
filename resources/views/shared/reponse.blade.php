@@ -1,5 +1,5 @@
 <div>
-    <form action="{{ route('Question.reponsestore',  $qs->id)}}" method="POST">
+<form action="{{ route('Question.reponsestore',  $qs->id)}}" method="POST">
         <div class="mb-3">
         @csrf
         <textarea name="content" class="fs-6 form-control" rows="1"></textarea>
@@ -16,10 +16,18 @@
         alt="Luigi Avatar">
     <div class="w-100">
         <div class="d-flex justify-content-between">
-            <h6 class="">Luigi
+            <h6 class="">{{$response->user->name}}
             </h6>
             <small class="fs-6 fw-light text-muted"> {{$response->created_at}}</small>
+            <div>
+            {{-- <form method="POST" action="{{route('Reponse.delete',$qs->id)}}">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger btn-sm">X</button>
+            </form> --}}
+            </div>
         </div>
+
         <p class="fs-6 mt-3 fw-light">
             {{$response->content}}
         </p>
