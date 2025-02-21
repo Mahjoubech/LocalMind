@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Models\Reponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReponseController extends Controller
 {
@@ -32,7 +33,7 @@ class ReponseController extends Controller
         $rpnse = new Reponse();
         $rpnse-> question_id = $qs->id;
         $rpnse->content = request()->get('content');
-        $rpnse->user_id = 1;
+        $rpnse->user_id =Auth::id();
         $rpnse->save();
         return redirect()->route('Question.show',$qs -> id );
     }
@@ -64,8 +65,12 @@ class ReponseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reponse $reponse)
+    public function destroy(Reponse $id)
     {
-        //
+      $id->delete();
+
+//  return redirect()->route('qstHome')->with('success','Question Deleted Success !') ;
+    return redirect()->back();
+
     }
 }
