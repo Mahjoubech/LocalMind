@@ -42,16 +42,16 @@ class AuthController extends Controller
         ]);
         if(Auth :: attempt($validated)){
             request()->session()->regenerate();
-            return redirect()->route('qstHome')->with('success','Account login Successfuly !!');
+            return redirect()->route('qstHome')->with('success',' login in Successfuly !!');
         }
-
-        User::create([
-          'name' => $validated['name'],
-              'email' => $validated['email'],
-              'password' => Hash::make($validated['password'])
-        ]);
         return redirect()->route('login')->withErrors([
             'email' => 'No matching user found with the provided email and password'
         ]);
+    }
+    public function logout(){
+        Auth :: logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect()->route('qstHome')->with('success','u are logout from swlni ');
     }
 }
