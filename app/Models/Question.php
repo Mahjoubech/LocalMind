@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Reponse;
+use Dom\Comment;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'title',
         'content',
@@ -13,4 +16,8 @@ class Question extends Model
         'like',
         'location',
     ];
+    public function responses(){
+        return $this-> hasMany(Reponse::class);
+    }
+
 }
