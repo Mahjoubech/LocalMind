@@ -1,8 +1,8 @@
 @auth()
 <h4> Share yours Questions </h4>
-<div class="row">
 
-    <form action="{{route('Question.create')}}" method="post">
+
+ <form action="{{route('Question.create')}}" method="post">
         @csrf
         <div class="mb-3">
             <label for="title">Title</label>
@@ -28,9 +28,12 @@
     </div>
 </form>
 
-</div>
+
 @endauth
 @guest
+
     <h4>Login for share Your Questions</h4>
+
 @endguest
+
 

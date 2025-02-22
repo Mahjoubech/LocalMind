@@ -84,6 +84,8 @@
         @endif
         @auth
        @include('shared.reponse')
+    </div>
+</div>
 
         @endauth
-    </div>
+
