@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
+
 
 class User extends Authenticatable
 {
@@ -48,10 +50,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
     public function question(){
         return $this->hasMany(Question::class)->latest();
     }
     public function reponses(){
         return $this->hasMany(Reponse::class)->latest();
+    }
+    public function getImage(){
+        if ($this->profile_picture ) {
+            return url('storage/' . $this->profile_picture);
+        }
+        return "https://api.dicebear.com/6.x/fun-emoji/svg?seed={{$this->name}}";
     }
 }
