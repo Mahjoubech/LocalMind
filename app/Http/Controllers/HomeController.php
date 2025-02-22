@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $qst = Question::orderBy('created_at', 'desc');
+        $qst = Question::latest();
 
         if (request()->has('search')) {
             $search = request()->get('search', '');
@@ -17,8 +17,8 @@ class HomeController extends Controller
             $qst = $qst->where(function ($query) use ($search) {
                 $query->where('title', 'like', '%' . $search . '%')
                       ->orWhere('location', 'like', '%' . $search . '%')
-                      ->orWhere('content', 'like', '%' . $search . '%')
-                      ->orWhere('name','like','%'.$search.'%');
+                      ->orWhere('content', 'like', '%' . $search . '%');
+
             });
         }
 
