@@ -63,4 +63,11 @@ class User extends Authenticatable
         }
         return "https://api.dicebear.com/6.x/fun-emoji/svg?seed={{$this->name}}";
     }
+
+    public function following(){
+        return $this->belongsToMany(User::class,'followers_user','follower_id','user_id');
+    }
+    public function followers(){
+        return $this->belongsToMany(User::class,'followers_user','user_id','follower_id');
+    }
 }
