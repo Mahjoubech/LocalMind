@@ -48,6 +48,9 @@ class User extends Authenticatable
         ];
     }
     public function question(){
-        return $this->hasMany(Question::class);
+        return $this->hasMany(Question::class)->latest();
+    }
+    public function reponses(){
+        return $this->hasMany(Reponse::class)->latest();
     }
 }
