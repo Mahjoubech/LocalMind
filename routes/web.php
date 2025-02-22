@@ -30,6 +30,10 @@ Route::post('/login',[AuthController::class , 'authenticate']);
 Route::post('/logout',[AuthController::class , 'logout'])->name('logout');
 //profile
 Route::get('profile',[UserController::class, 'profile'])->name('profile')->middleware('auth');
+Route::get('profile/{user}', [UserController::class, 'show'])
+    ->name('profile.show')
+    ->middleware('auth');
+
 //Reponses
 Route::delete('/Question/{id}/reponses',[ReponseController::class , 'destroy'])->name('Reponse.delete');
 
