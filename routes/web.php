@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReponseController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FollowerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class , 'index'])->name('qstHome');
@@ -35,8 +36,10 @@ Route::delete('/Question/{id}/reponses',[ReponseController::class , 'destroy'])-
 //resource
 Route::resource('user',UserController::class)->only('edit','show','update')->middleware('auth');
 
+//follower
 
-
+Route::post('users/{user}/follow',[FollowerController::class , 'follow'])->name('users.follow')->middleware('auth');;
+Route::post('users/{user}/unfollow',[FollowerController::class , 'unfollow'])->name('users.unfollow')->middleware('auth');;
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
