@@ -17,7 +17,8 @@ class HomeController extends Controller
             $qst = $qst->where(function ($query) use ($search) {
                 $query->where('title', 'like', '%' . $search . '%')
                       ->orWhere('location', 'like', '%' . $search . '%')
-                      ->orWhere('content', 'like', '%' . $search . '%');
+                      ->orWhere('content', 'like', '%' . $search . '%')
+                      ->orWhere('name','like','%'.$search.'%');
             });
         }
 
