@@ -7,9 +7,9 @@
 
             <div class="d-flex align-items-center">
                 <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{$qs->user->name}}" alt="Mario Avatar">
+                    src="{{$qs->user->getImage()}}" alt="Profile Image">
                 <div>
-                    <h5 class="card-title mb-0"><a href="#"> {{$qs->user->name}}
+                    <h5 class="card-title mb-0"><a href="{{route('profile')}}"> {{$qs->user->name}}
                     </a></h5>
                 </div>
             </div>

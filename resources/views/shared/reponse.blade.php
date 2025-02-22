@@ -16,8 +16,8 @@
         alt="Luigi Avatar">
     <div class="w-100">
         <div class="d-flex justify-content-between">
-            <h6 class="">{{$response->user->name}}
-            </h6>
+           <a href="{{route('profile')}}"><h6 class="">{{$response->user->name}}
+            </h6></a>
             <small class="fs-6 fw-light text-muted"> {{$response->created_at}}</small>
             <div>
             {{-- <form method="POST" action="{{route('Reponse.delete',$qs->id)}}">
