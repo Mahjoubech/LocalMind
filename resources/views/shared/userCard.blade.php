@@ -45,6 +45,7 @@
 @if (Auth::id() !== $user->id)
  <div class="mt-3">
     <form method="POST" action="{{route('users.follow',$user->id)}}">
+        @csrf
         <button type="submit" class="btn btn-primary btn-sm"> Follow </button>
 
     </form>
