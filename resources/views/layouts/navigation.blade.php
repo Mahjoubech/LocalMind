@@ -10,10 +10,10 @@
                 <ul class="navbar-nav">
                     @guest
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                        <a class="nav-link active" aria-current="page" href="{{route('login')}}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
+                        <a class="nav-link" href="{{route('register')}}">Register</a>
                     </li>
                     @endguest
 
@@ -24,13 +24,13 @@
                             <span class="ms-2">{{Auth::user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="/profile">View Profile</a></li>
+                            <li><a class="dropdown-item" href="{{route('profile')}}">View Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                 @csrf
                                 <li class="nav-item">
                                     <button type="submit" class="dropdown-item bg-transparent d-flex align-items-center">
-                                        <i class="bi bi-box-arrow-right me-2"></i> 
+                                        <i class="bi bi-box-arrow-right me-2"></i>
                                         Logout
                                     </button>
                                 </li>
