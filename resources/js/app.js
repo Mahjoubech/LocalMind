@@ -1,4 +1,5 @@
 import './bootstrap';
+import './jsonCity';
 
 import Alpine from 'alpinejs';
 
