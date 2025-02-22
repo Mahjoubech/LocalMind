@@ -27,6 +27,8 @@ Route::get('/login',[AuthController::class , 'login'])->name('login');
 Route::post('/login',[AuthController::class , 'authenticate']);
 //logout
 Route::post('/logout',[AuthController::class , 'logout'])->name('logout');
+//profile
+Route::get('profile',[UserController::class, 'profile'])->name('profile')->middleware('auth');
 //Reponses
 Route::delete('/Question/{id}/reponses',[ReponseController::class , 'destroy'])->name('Reponse.delete');
 
@@ -35,14 +37,15 @@ Route::resource('user',UserController::class)->only('edit','show','update')->mid
 
 
 
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';
