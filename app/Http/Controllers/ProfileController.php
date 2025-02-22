@@ -16,16 +16,16 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
-    {
-        // List of cities in Morocco
-        $cities = ['Casablanca', 'Rabat', 'Marrakech', 'Fes', 'Tangier', 'Agadir', 'Meknes', 'Oujda', 'Tétouan', 'Safi'];
+    // public function edit(Request $request): View
+    // {
+    //     // List of cities in Morocco
+    //     $cities = ['Casablanca', 'Rabat', 'Marrakech', 'Fes', 'Tangier', 'Agadir', 'Meknes', 'Oujda', 'Tétouan', 'Safi'];
 
-        return view('profile.edit', [
-            'user' => $request->user(),
-            'cities' => $cities, // Pass cities list to the view
-        ]);
-    }
+    //     return view('profile.edit', [
+    //         'user' => $request->user(),
+    //         'cities' => $cities, // Pass cities list to the view
+    //     ]);
+    // }
 
     /**
      * Update the user's profile information.
