@@ -16,7 +16,7 @@
         alt="Luigi Avatar">
     <div class="w-100">
         <div class="d-flex justify-content-between">
-           <a href="{{route('profile')}}"><h6 class="">{{$response->user->name}}
+           <a href="{{route('profile.show', $response->user->id)}}"><h6 class="">{{$response->user->name}}
             </h6></a>
             <small class="fs-6 fw-light text-muted"> {{$response->created_at}}</small>
             <div>

@@ -44,7 +44,10 @@
                 @auth
 @if (Auth::id() !== $user->id)
  <div class="mt-3">
-                    <button class="btn btn-primary btn-sm"> Follow </button>
+    <form method="POST" action="{{route('users.follow',$user->id)}}">
+        <button type="submit" class="btn btn-primary btn-sm"> Follow </button>
+
+    </form>
                 </div>
 @endif
                 @endauth

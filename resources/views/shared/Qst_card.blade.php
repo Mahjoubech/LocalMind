@@ -9,7 +9,7 @@
                 <img style="width:50px" class="me-2 avatar-sm rounded-circle"
                     src="{{$qs->user->getImage()}}" alt="Profile Image">
                 <div>
-                    <h5 class="card-title mb-0"><a href="{{route('profile')}}"> {{$qs->user->name}}
+                    <h5 class="card-title mb-0"><a href="{{route('profile.show',$qs->user->id)}}"> {{$qs->user->name}}
                     </a></h5>
                 </div>
             </div>
