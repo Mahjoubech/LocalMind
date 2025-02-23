@@ -2,7 +2,7 @@
     <div class="card-body pt-3">
         <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{route('qstHome')}}">
+                <a class="nav-link text-dark {{(Route::is('qstHome')) ? 'text-white rounded bg-primary ' : ''}}" href="{{route('qstHome')}}">
                     <span>Home</span></a>
             </li>
             <li class="nav-item">
