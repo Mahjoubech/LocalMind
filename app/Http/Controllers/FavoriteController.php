@@ -25,6 +25,7 @@ class FavoriteController extends Controller
          return view('favorite', compact('favorites'));
      }
 
+     
     /**
      * Store a newly added question to favorites.
      */
