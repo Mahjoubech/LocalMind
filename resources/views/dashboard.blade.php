@@ -7,7 +7,7 @@
                 @include('shared.left-sideBar')
             </div>
             <div class="col-6">
-
+           @yield('fav')
             @yield('contentsl')
             </div>
             <div class="col-3">
