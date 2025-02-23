@@ -50,9 +50,14 @@ Route::middleware('auth')->group(function () {
     Route::get('favorites', [FavoriteController::class, 'index'])->name('favorites.index');
     Route::post('favorites', [FavoriteController::class, 'store'])->name('favorites.store');
     Route::delete('favorites/{question_id}', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
-    // Optionally, if you want a show route:
     Route::get('favorites/{question_id}', [FavoriteController::class, 'show'])->name('favorites.show');
 });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/chat', [UserController::class, 'index'])->name('chat.index');
+    Route::post('/chat/send', [UserController::class, 'send'])->name('chat.send');
+    Route::get('/chat/messages', [UserController::class, 'fetchMessages'])->name('chat.fetchMessages');
+});
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
