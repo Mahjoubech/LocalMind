@@ -22,6 +22,10 @@ class Question extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'question_id', 'user_id')
+                    ->withTimestamps();
+    }
 }
 
