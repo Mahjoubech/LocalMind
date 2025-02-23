@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReponseController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class , 'index'])->name('qstHome');
@@ -44,7 +45,14 @@ Route::resource('user',UserController::class)->only('edit','show','update')->mid
 
 Route::post('users/{user}/follow',[FollowerController::class , 'follow'])->name('users.follow')->middleware('auth');;
 Route::post('users/{user}/unfollow',[FollowerController::class , 'unfollow'])->name('users.unfollow')->middleware('auth');;
-
+//favorite
+Route::middleware('auth')->group(function () {
+    Route::get('favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+    Route::post('favorites', [FavoriteController::class, 'store'])->name('favorites.store');
+    Route::delete('favorites/{question_id}', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
+    // Optionally, if you want a show route:
+    Route::get('favorites/{question_id}', [FavoriteController::class, 'show'])->name('favorites.show');
+});
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
