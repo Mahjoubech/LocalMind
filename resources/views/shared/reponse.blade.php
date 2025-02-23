@@ -18,7 +18,7 @@
         <div class="d-flex justify-content-between">
            <a href="{{route('profile.show', $response->user->id)}}"><h6 class="">{{$response->user->name}}
             </h6></a>
-            <small class="fs-6 fw-light text-muted"> {{$response->created_at}}</small>
+            <small class="fs-6 fw-light text-muted"> {{$response->created_at->diffForHumans()}}</small>
             <div>
             {{-- <form method="POST" action="{{route('Reponse.delete',$qs->id)}}">
                 @csrf

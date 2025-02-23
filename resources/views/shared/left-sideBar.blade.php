@@ -6,7 +6,7 @@
                     <span>Home</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link taxt-dark {{(Route::is('chat.index')) ? 'text-white bg-primary rounded' : ''}}" href="{{route('chat.index')}}" href="#">
                     <span>Chat</span></a>
             </li>
             <li class="nav-item">

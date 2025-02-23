@@ -10,7 +10,7 @@
                         src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt=""></a>
             </div>
             <div class="overflow-hidden">
-                <a class="h6 mb-0" href="#!">Mario Brother</a>
+                <a class="h6 mb-0" href="#!"></a>
                 <p class="mb-0 small text-truncate">@Mario</p>
             </div>
             <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" href="#"><i

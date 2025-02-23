@@ -8,6 +8,7 @@
             </div>
             <div class="col-6">
            @yield('fav')
+           @yield('chat')
             @yield('contentsl')
             </div>
             <div class="col-3">

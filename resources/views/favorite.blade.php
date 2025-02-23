@@ -49,7 +49,7 @@
             </div>
             <div>
                 <span class="fas fa-clock me-1"></span>
-                <span class="fs-6 fw-light text-muted">{{ $qs->created_at }}</span>
+                <span class="fs-6 fw-light text-muted">{{ $qs->created_at->diffForHumans() }}</span>
             </div>
         </div>
     </div>

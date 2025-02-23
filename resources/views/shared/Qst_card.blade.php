@@ -99,7 +99,7 @@
             </div>
             <div>
                 <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock"> </span>
-                    {{$qs -> created_at}} </span>
+                    {{$qs -> created_at->diffForHumans()}} </span>
             </div>
         </div>
         @endif
