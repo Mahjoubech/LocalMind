@@ -10,7 +10,7 @@
                     <span>Chat</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link taxt-dark {{(Route::is('favorites.index')) ? 'text-white bg-primary rounded' : ''}}" href="{{route('favorites.index')}}">
                     <span>Favorite</span></a>
             </li>
         </ul>
