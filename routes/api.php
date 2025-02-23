@@ -11,5 +11,13 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
-
+use Illuminate\Http\Request;
+use App\Models\Message;
+use App\Models\User;
+use App\Http\Controllers;
 Route::get('/cities', [CityController::class, 'index']);
+
+
+
+
+
