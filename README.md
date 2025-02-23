@@ -1,66 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Swlni - Application de Questions Localisées
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Logo de Swlni](path/to/your/logo.png) <!-- Replace with your logo image -->
 
-## About Laravel
+## Description du projet
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Swlni** est une application web qui permet aux utilisateurs de poser des questions sur leur environnement local et d'obtenir des réponses d'autres utilisateurs situés à proximité. L'application vise à créer une communauté d'entraide où chacun peut partager ses connaissances et ses expériences pour faciliter l'intégration des nouveaux arrivants dans une ville.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Contexte
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Amine vient d'arriver dans une nouvelle ville et se pose de nombreuses questions sur son environnement. Ne connaissant personne, il a besoin d'informations provenant des personnes proches de son lieu de résidence. L'objectif de ce projet est de développer une application qui répond à ce besoin en utilisant le framework Laravel.
 
-## Learning Laravel
+## Objectifs
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Améliorer l'expérience utilisateur en réduisant les temps de chargement et en augmentant la réactivité de l'application.
+- Utiliser le modèle MVC avec Laravel pour optimiser la gestion de la logique métier, la manipulation des données et la présentation.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Fonctionnalités
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🌍 Publication de Questions
 
-## Laravel Sponsors
+- Les utilisateurs peuvent publier des questions liées à leur emplacement.
+- Chaque question inclut :
+  - **Titre descriptif**
+  - **Contenu détaillé**
+  - **Emplacement** (géolocalisation ou saisie manuelle)
+  - **Date de publication**
+- Les questions peuvent être triées par distance pour afficher les plus pertinentes en premier.
+- Un champ de recherche permet de rechercher des questions par mots-clés ou lieu.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 💬 Réponses et Interactions
 
-### Premium Partners
+- Les utilisateurs peuvent répondre aux questions publiées par d'autres membres.
+- Les réponses sont visibles directement sous la question correspondante.
+- Un système de **favoris** permet aux utilisateurs d’enregistrer leurs questions préférées.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 📊 Statistiques
 
-## Contributing
+- Affichage du nombre total de questions publiées.
+- Mise en avant des questions les plus populaires (les plus aimées ou les plus répondues).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🎁 Bonus
 
-## Code of Conduct
+- **Authentification et Profils** : Chaque utilisateur dispose d’un profil pour gérer ses questions et ses favoris (inscription et connexion par email et mot de passe).
+- **Favoris** : Les utilisateurs peuvent ajouter une question à leurs favoris et la retirer à tout moment.
+- **Tri intelligent** : Les questions sont automatiquement classées en fonction de la proximité avec l’utilisateur.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Technologies utilisées
 
-## Security Vulnerabilities
+- **Framework Backend** : Laravel (PHP)
+- **Frontend** : HTML, CSS, JavaScript
+- **Template Engine** : Blade
+- **Base de données** : PostgreSQL
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Compétences visées
 
-## License
+- Définir le périmètre d’un problème rencontré.
+- Rechercher méthodiquement des solutions au problème.
+- Installer et configurer l'environnement de travail en fonction du projet.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Interfaces 
+
+
+![Diagramme de l'architecture](path/to/your/architecture-diagram.png) <!-- Replace with your diagram image -->
+*Diagramme de l'architecture de l'application*
+
+![Interface de publication de questions](path/to/your/question-interface.png) <!-- Replace with your interface screenshot -->
+*Interface de publication de questions*
+
+![Interface des réponses](path/to/your/response-interface.png) <!-- Replace with your interface screenshot -->
+*Interface des réponses*
+
+## Instructions d'installation
+
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/votre-utilisateur/swlni.git
