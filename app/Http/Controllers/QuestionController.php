@@ -71,8 +71,8 @@ class QuestionController extends Controller
     {
 
         $request->validate([
-            'title'   => 'required|min:10|max:30',
-            'content' => 'required|min:20|max:100',
+            'title'   => 'required|min:10|max:40',
+            'content' => 'required|min:10|max:100',
         ]);
 
         $qs->update([
