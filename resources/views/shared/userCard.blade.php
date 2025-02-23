@@ -8,8 +8,8 @@
                         src="{{$user->getImage()}}" alt="profile image">
                     <div>
 
-                        <h3 class="card-title mb-0"><a href="{{route('profile')}}"> {{$user->name}}
-                            </a></h3>
+                        <h3 class="card-title mb-0"> {{$user->name}}
+                            </h3>
                         <span class="fs-6 text-muted">{{$user->email}}</span><br>
                          <span class="fs-6 text-muted"><i class="bi bi-geo-alt"></i>{{$user->location}}</span>
 
@@ -44,11 +44,20 @@
                 @auth
 @if (Auth::id() !== $user->id)
  <div class="mt-3">
-    <form method="POST" action="{{route('users.follow',$user->id)}}">
+    @if (Auth :: user()->follows($user))
+    <form method="POST" action="{{route('users.unfollow',$user->id)}}">
+        @csrf
+        <button type="submit" class="btn btn-danger btn-sm"> Unfollow </button>
+
+    </form>
+    @else
+     <form method="POST" action="{{route('users.follow',$user->id)}}">
         @csrf
         <button type="submit" class="btn btn-primary btn-sm"> Follow </button>
 
     </form>
+    @endif
+
                 </div>
 @endif
                 @endauth
