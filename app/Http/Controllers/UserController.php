@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +10,28 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        // Retrieve all messages for the authenticated user
+        $messages = Message::with('user')->get();
+
+        return view('chat.chat', compact('messages'));
+    }
+
+    public function send(Request $request)
+    {
+        $request->validate([
+            'message' => 'required|string|max:255',
+        ]);
+
+        // Save the message to the database
+        Message::create([
+            'user_id' => Auth::id(),
+            'message' => $request->message,
+        ]);
+
+        return redirect()->route('chat.index')->with('success', 'Message sent!');
+    }
 
     public function show(User $user)
     {
@@ -54,5 +77,5 @@ class UserController extends Controller
         $user =  Auth::user();
         return $this->show($user);
     }
- 
+
 }
